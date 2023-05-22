@@ -1,7 +1,6 @@
 # api_yamdb
 ![Django REST workflow](https://github.com/MaryMash/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 
-
 ## Описание:
 ### REST API для YaMDb
 YaMDb - платформа, созданная для комментирования и выставления оценок различным произведениям художественной литературы, кино и музыки. 
