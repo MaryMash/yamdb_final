@@ -150,3 +150,6 @@ static/
 posts/static/
 media/
 
+# папки проекта
+infra_web_1:app
+base_settings.py

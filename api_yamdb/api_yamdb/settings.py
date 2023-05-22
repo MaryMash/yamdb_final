@@ -4,13 +4,15 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
+from .base_settings import DEBUG_SETTING, SECRET_KEY_SETTING
+
 load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = SECRET_KEY_SETTING
 
-DEBUG = os.getenv('DEBUG') is True
+DEBUG = DEBUG_SETTING
 
 ALLOWED_HOSTS = ['*']
 
