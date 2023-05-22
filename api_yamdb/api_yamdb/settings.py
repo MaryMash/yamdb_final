@@ -8,9 +8,9 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = "p&l%385148kslhtyn^##a1)ilz@4zqj=rq&agdol^##zgl9(vs"  # os.getenv('SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
-DEBUG = False  # os.getenv('DEBUG') is True
+DEBUG = os.getenv('DEBUG') is True
 
 ALLOWED_HOSTS = ['*']
 
