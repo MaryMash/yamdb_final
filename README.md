@@ -115,7 +115,42 @@ docker-compose exec web python manage.py loaddata fixtures.json
 
 ## Запуск проекта на боевом сервере:
 * Установить на сервере docker и docker-compose
+* Скопировать на сервер файлы docker-compose.yaml и default.conf из директории /infra:
+```
+scp docker-compose.yaml <логин_на_сервере>@<IP_сервера>:/home/<логин_на_сервере>/docker-compose.yaml
+scp default.conf <логин_на_сервере>@<IP_сервера>:/home/<логин_на_сервере>/nginx/docker-compose.yaml
+```
+Добавить переменные в Secrets: 
+```
+DB_ENGINE=django.db.backends.postgresql # указываем, что работаем с postgresql
+DB_NAME=postgres # имя базы данных
+POSTGRES_USER=postgres # логин для подключения к базе данных
+POSTGRES_PASSWORD=postgres # пароль для подключения к БД
+DB_HOST=db # название сервиса БД (контейнера) 
+DB_PORT=5432 # порт для подключения к БД
+DOCKER_PASSWORD= # Пароль от аккаунта на DockerHub
+DOCKER_USERNAME= # Username в аккаунте на DockerHub
+HOST= # IP удалённого сервера
+USER= # Логин для подключения к удалённому серверу
+SSH_KEY= # SSH-key компьютера, с которого будет происходить подключение к удалённому серверу, команда для получения:  cat ~/.ssh/id_rsa
+ 
+PASSPHRASE= #Если для ssh используется фраза-пароль
+TELEGRAM_TO= #ID пользователя в Telegram
+TELEGRAM_TOKEN= #ID бота в Telegram
+```
 
+* Сделать коммит:
+```
+git add .
+git commit -m "commit message"
+git push
+```
+* После того как в gihub будут запушены изменения, запустятся следующие процессы:
+1. проверка кода на соответствие стандарту PEP8 
+2. запуск pytest
+3. сборка и обновление докер-образа для контейнера web на Docker Hub
+4. автоматический деплой проекта на боевой сервер
+5. отправка уведомления в Telegram об успешном завершении процесса
 
 ## Авторы:
 [MaryMash](https://github.com/MaryMash)
