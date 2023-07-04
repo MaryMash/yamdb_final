@@ -115,6 +115,10 @@ docker-compose exec web python manage.py loaddata fixtures.json
 
 ## Запуск проекта на боевом сервере:
 * Установить на сервере docker и docker-compose
+* Остановить службу nginx, если он запущен:
+```
+ sudo systemctl stop nginx
+```
 * Скопировать на сервер файлы docker-compose.yaml и default.conf из директории /infra:
 ```
 scp docker-compose.yaml <логин_на_сервере>@<IP_сервера>:/home/<логин_на_сервере>/docker-compose.yaml
