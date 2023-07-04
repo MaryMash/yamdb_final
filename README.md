@@ -121,8 +121,8 @@ docker-compose exec web python manage.py loaddata fixtures.json
 ```
 * Скопировать на сервер файлы docker-compose.yaml и default.conf из директории /infra:
 ```
-scp docker-compose.yaml <логин_на_сервере>@<IP_сервера>:/home/<логин_на_сервере>/docker-compose.yaml
-scp default.conf <логин_на_сервере>@<IP_сервера>:/home/<логин_на_сервере>/nginx/docker-compose.yaml
+scp docker-compose.yaml <логин_на_сервере>@<IP_сервера>:/home/<логин_на_сервере>/
+scp default.conf <логин_на_сервере>@<IP_сервера>:/home/<логин_на_сервере>/nginx/
 ```
 Добавить переменные в Secrets: 
 ```
