@@ -49,8 +49,8 @@ POST-запрос с параметрами username и email на эндпои�
 - PostgreSQL 13.0
 - Nginx 1.19.3
 - Gunicorn 20.0.4
-- Docker 24.0.2
-- Docker Compose 1.25.0
+- Docker 20.10.21
+- Docker Compose 1.29.2
 
 ## Запуск проекта локально:
 
